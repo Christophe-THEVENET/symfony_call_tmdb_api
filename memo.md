@@ -19,6 +19,8 @@ composer require symfony/asset-mapper symfony/asset symfony/twig-pack
 
 composer require symfony/orm-pack
 
+composer require symfony/cache
+
 
 php bin/console importmap:require bootstrap
 

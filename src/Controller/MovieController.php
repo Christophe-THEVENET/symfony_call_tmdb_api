@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Service\Tmdb\CallApiTmdbService;
-use App\Service\Tmdb\Client;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -22,7 +21,6 @@ class MovieController extends AbstractController
 
         $popularMovies = $this->httpCallApiTmdb->popular();
 
-        dd($popularMovies);
 
 
         return $this->render('movie/index.html.twig', [
@@ -30,3 +28,4 @@ class MovieController extends AbstractController
         ]);
     }
 }
+ 
