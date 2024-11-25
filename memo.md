@@ -19,6 +19,7 @@ composer require symfony/asset-mapper symfony/asset symfony/twig-pack
 
 composer require symfony/orm-pack
 
+
 php bin/console importmap:require bootstrap
 
 importer boostrap ds app.js
@@ -31,3 +32,5 @@ cré un service client tmdb pour requeter l'api tmdb (films)
 config framework.yml
 
 active esi et fragment
+
+
