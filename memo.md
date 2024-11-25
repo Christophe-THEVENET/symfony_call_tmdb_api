@@ -36,3 +36,8 @@ config framework.yml
 active esi et fragment
 
 
+
+création d'une extention twig pour ajouter le path des images ds la card des films
+
+
+
