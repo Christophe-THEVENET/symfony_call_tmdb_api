@@ -21,10 +21,12 @@ class MovieController extends AbstractController
 
         $popularMovies = $this->httpCallApiTmdb->popular();
 
+        dd($popularMovies);
+
 
 
         return $this->render('movie/index.html.twig', [
-            'toto' => 'toto',
+            'movies' =>$popularMovies,
         ]);
     }
 }

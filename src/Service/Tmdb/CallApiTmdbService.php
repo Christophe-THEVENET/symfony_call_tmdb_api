@@ -26,22 +26,24 @@ class CallApiTmdbService
      */
     public function popular(): array
     {
-     
+
         // si pas de clé  popular trouvé on crée le cache
         return $this->cache->get('popular', function (ItemInterface $item) {
-            $item->expiresAfter(3600);  
+            $item->expiresAfter(3600);
 
-        $response = $this->tmdbClient->request('GET', '/3/movie/popular', [
-            'query' => [
-                'language' => 'fr-FR'
-            ]
-        ]);
+            $response = $this->tmdbClient->request('GET', '/3/movie/popular', [
+                'query' => [
+                    'language' => 'fr-FR'
+                ]
+            ]);
 
-        $data = $response->toArray();
+            $data = $response->toArray();
 
-        return $data;
+            // on passe les films sous forme de tableau d'objet
+            // on mappe les propriétés que l on veut dans l'ordre
+            return  array_map(fn(array $movie) => new Movie($movie['overview'], $movie['poster_path'], $movie['title']), $data['results']); 
 
-        }); 
-       
+
+        });
     }
 }
