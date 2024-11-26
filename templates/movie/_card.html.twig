@@ -1,0 +1,17 @@
+<article class="col-md-3 mb-3">
+	<div
+		class="card h-100">
+		{# on crée un filtre twig pour avoir la base url de l'image #}
+		<img src="{{movie|movie_poster}}" alt="{{movie.title}}" class="card-img-top">
+
+		<div class="card-body p-2">
+			<h5 class="card-title">{{movie.title}}</h5>
+			{% set truncatedDescription = movie.overview|slice(0, 220) %}
+			<p class="card-text">
+				{{ truncatedDescription }}
+				{% if movie.overview|length > 220 %}...
+				{% endif %}
+			</p>
+		</div>
+	</div>
+</article>

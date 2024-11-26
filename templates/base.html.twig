@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>"> {% block stylesheets %}{% endblock %}
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+		{% block javascripts %}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+		{% endblock %}
+	</head>
+	<body>
+
+		<header class="p-3">
+			<div class="container">
+				<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+					<a href="{{path('app_movie')}}" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+						<img class="bi me-2" width="60" height="50" role="img" aria-label="Bootstrap" src="{{asset('img/logo.jpg')}}" alt="">
+					</a>
+
+					<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+						<li>
+							<a href="{{path('app_movie_upcoming')}}" class="nav-link px-2">Acceuil</a>
+
+
+						</li>
+						<li>
+							<a href="{{path('app_movie_upcoming')}}" class="nav-link px-2">Prochainement</a>
+
+						</li>
+					</ul>
+
+					<form action="{{path('app_movie_search')}}" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+						<input type="search" name="query" class="form-control form-control-dark text-bg-dark" placeholder="Recherche..." aria-label="Search">
+					</form>
+
+				</div>
+			</div>
+		</header>
+		{% block body %}{% endblock %}
+
+	</body>
 </html>

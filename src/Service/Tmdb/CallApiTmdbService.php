@@ -46,4 +46,48 @@ class CallApiTmdbService
 
         });
     }
+
+    /**
+     * @return Movie[]
+     */
+    public function upcoming(): array
+    {
+
+        // si pas de clé  popular trouvé on crée le cache
+        return $this->cache->get('upcoming', function (ItemInterface $item) {
+            $item->expiresAfter(3600);
+
+            $response = $this->tmdbClient->request('GET', '/3/movie/upcoming', [
+                'query' => [
+                    'language' => 'fr-FR'
+                ]
+            ]);
+
+            $data = $response->toArray();
+
+            // on passe les films sous forme de tableau d'objet
+            // on mappe les propriétés que l on veut dans l'ordre
+            return  array_map(fn(array $movie) => new Movie($movie['overview'], $movie['poster_path'], $movie['title']), $data['results']);
+        });
+    }
+
+    /**
+     * @return Movie[]
+     */
+    public function query(string $query): array
+    {
+     
+            $response = $this->tmdbClient->request('GET', '/3/search/movie', [
+                'query' => [
+                    'query' => $query,
+                    'language' => 'fr-FR'
+                ]
+            ]);
+
+            $data = $response->toArray();
+
+            // on passe les films sous forme de tableau d'objet
+            // on mappe les propriétés que l on veut dans l'ordre
+            return  array_map(fn(array $movie) => new Movie($movie['overview'], $movie['poster_path'], $movie['title']), $data['results']);
+    }
 }
