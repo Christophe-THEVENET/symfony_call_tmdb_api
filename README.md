@@ -23,7 +23,7 @@ git clone https://github.com/Christophe-THEVENET/symfony_call_tmdb_api.git
 ```
 
 ```console
-cd symfony_call_tmdb_api.git
+cd symfony_call_tmdb_api
 ```
 
 ```console
