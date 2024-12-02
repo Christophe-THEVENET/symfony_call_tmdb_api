@@ -15,7 +15,7 @@ class MovieController extends AbstractController
     public function __construct(private readonly CallApiTmdbService $httpCallApiTmdb) {}
 
 
-    #[Route('/movie', name: 'app_movie')]
+    #[Route('/', name: 'app_movie')]
     public function index(): Response
     {
         return $this->render('movie/index.html.twig', [

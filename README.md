@@ -51,6 +51,7 @@ lancer un serveur frankenPHP en mode worker (si hote Windows -> executer la comm
 ```console
 docker run -e FRANKENPHP_CONFIG="worker ./public/index.php" -e APP_RUNTIME="Runtime\\FrankenPhpSymfony\\Runtime" -v "$PWD:/app" -p 80:80 -p 443:443 -p 443:443/udp dunglas/frankenphp
 ```
+Accepter la connexion (tester sur plusieurs navigateurs)
 
 https://localhost
 
