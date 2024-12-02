@@ -9,28 +9,50 @@ Requete sur l'API The Movie Database sur les films du moments et sur la recherch
 * Rechercher des films
 * Mettre en cache les requêtes GET
 * Mappage des données DTO
+* 
 
 ## Getting Started
 
+#### required
+
+docker engine
+
+
 ```console
-git clone
+git clone https://github.com/Christophe-THEVENET/symfony_call_tmdb_api.git
 ```
 
 ```console
-cd 
+cd symfony_call_tmdb_api.git
 ```
+
+```console
+code .
+```
+
 récupérer une clé de l'API 
 
 https://developer.themoviedb.org/docs/getting-started
 
 Créer fichier .env.local et ajouter la clé 
 
-```console
+
+```php
 TMDB_API_TOKEN='xxxxxxxxxxx.xxxxxxxxxx.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 ```
 
 
-```symfony server:start
-cd 
+```console
+composer install
+```
+lancer un serveur frankenPHP en mode worker (si hote Windows -> executer la commande suivante dans un terminal wsl)
 
-http://127.0.0.1:8000
+
+```console
+docker run -e FRANKENPHP_CONFIG="worker ./public/index.php" -e APP_RUNTIME="Runtime\\FrankenPhpSymfony\\Runtime" -v "$PWD:/app" -p 80:80 -p 443:443 -p 443:443/udp dunglas/frankenphp
+```
+
+https://localhost
+
+
+!!! . 1ere connexion un peut longue 
