@@ -1,9 +1,9 @@
 body {
-    background: #056076;
+    background: #508896;
 }
 
 header {
-    background-color: #0c3b46;
+    background-color: #0c4250;
 }
 
 input[type="search"]::placeholder {
@@ -17,5 +17,9 @@ input[type="search"] {
 }
 
 li a {
-    color: #70c8b0 !important;
+    color: #8ac6b6 !important;
+}
+
+.card {
+    background-color: #b2d8ce;
 }

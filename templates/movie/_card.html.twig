@@ -2,8 +2,10 @@
 	<div
 		class="card h-100">
 		{# on crée un filtre twig pour avoir la base url de l'image #}
-		<img src="{{movie|movie_poster}}" alt="{{movie.title}}" class="card-img-top">
 
+		{% if movie.poster_path is not null  %}
+			<img src="{{movie|movie_poster}}" alt="{{movie.title}}" class="card-img-top">
+		{% endif %}
 		<div class="card-body p-2">
 			<h5 class="card-title">{{movie.title}}</h5>
 			{% set truncatedDescription = movie.overview|slice(0, 220) %}
