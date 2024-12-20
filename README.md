@@ -45,7 +45,10 @@ TMDB_API_TOKEN='xxxxxxxxxxx.xxxxxxxxxx.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 ```console
 composer install
 ```
-lancer un serveur frankenPHP en mode worker (si hote Windows -> executer la commande suivante dans un terminal wsl)
+lancer un serveur frankenPHP en mode worker
+
+> [!WARNING]  
+> si hote Windows -> executer la commande suivante dans un terminal wsl.
 
 
 ```console
